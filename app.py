@@ -396,6 +396,7 @@ os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # Streamlit app
+st.secrets['HF_TOKEN']
 st.title("Chat with Your PDF 📄")
 st.write("Upload a PDF file and chat with its content using Groq!")
 
@@ -462,8 +463,6 @@ if api_key:
             "Context:\n{context}"
         )
         
-
-
         qa_prompt = ChatPromptTemplate.from_messages(
             [
                 ("system", qa_system_prompt),
